@@ -1,0 +1,32 @@
+
+server:
+  port: 5555
+spring:
+  application:
+    name: zuul-server
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+zuul:
+  sensitive-headers:
+  routes:
+    client-a:
+      path: /client/**
+      serviceId: client-a
+security:
+  oauth2:
+    client:
+      client-id: zuul-server
+      client-secret: 123456
+      access-token-uri: http://localhost:7777/uaa/oauth/token
+      user-authorization-uri: http://localhost:7777/uaa/oauth/authorize
+    resource:
+      jwt:
+        key-value: springcloud123
+#        key-uri: http://localhost:7777/uaa/oauth/token_key
+
+

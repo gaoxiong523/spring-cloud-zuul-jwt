@@ -1,4 +1,4 @@
-package com.gaoxiong.authserver;
+package com.gaoxiong;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

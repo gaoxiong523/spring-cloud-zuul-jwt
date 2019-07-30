@@ -6,6 +6,13 @@ server:
 spring:
   application:
     name: auth-server
+  datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/oauth2?serverTimezone=GMT
+      username: root
+      password: 123456
+  redis:
+    host: 106.12.84.126
 eureka:
   client:
     service-url:
